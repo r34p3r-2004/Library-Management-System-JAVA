@@ -1,0 +1,24 @@
+Convert the JAR to a Windows .exe
+To make it a true Windows application (like Library.exe), the easiest and most popular method is to use a free tool called Launch4j.
+
+Download and install Launch4j (search for "Launch4j download" on your browser).
+
+Open Launch4j and fill out the Basic tab:
+
+Output file: Choose where you want to save the .exe and name it (e.g., C:\Desktop\Library.exe).
+
+Jar: Browse and select the LibraryManagementSystem-1.0-jar-with-dependencies.jar file you just generated in your target folder.
+
+Icon (Optional): If you have an .ico file, you can upload it here so your .exe has a custom desktop icon.
+
+Switch to the JRE tab:
+
+In the Min JRE version box, type 1.8.0 (this ensures it runs on modern Java versions).
+
+Click the Gear icon (Build wrapper) at the top of the Launch4j window.
+
+It will ask you to save an .xml configuration file (just save it anywhere, like your desktop, as config.xml).
+
+Launch4j will instantly generate your Library.exe file.
+
+You can now double-click Library.exe to launch your system just like any other Windows application. You can move this .exe file to any computer that has Java installed and it will run perfectly.
