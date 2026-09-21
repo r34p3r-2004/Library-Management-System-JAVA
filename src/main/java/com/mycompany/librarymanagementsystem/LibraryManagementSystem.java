@@ -4,13 +4,27 @@
 
 package com.mycompany.librarymanagementsystem;
 
-/**
- *
- * @author sesan
- */
+import com.mycompany.librarymanagementsystem.db.DBConnection;
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class LibraryManagementSystem {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        try {
+
+            try (Connection connection = DBConnection.getConnection()) {
+                System.out.println("================================");
+                System.out.println("DATABASE CONNECTION SUCCESSFUL");
+                System.out.println("================================");
+            }
+
+        } catch (SQLException e) {
+
+            System.out.println("================================");
+            System.out.println("DATABASE CONNECTION FAILED");
+            System.out.println("================================");
+
+        }
     }
 }
