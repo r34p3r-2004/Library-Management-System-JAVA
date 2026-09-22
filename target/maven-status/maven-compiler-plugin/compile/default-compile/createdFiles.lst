@@ -12,7 +12,6 @@ com/mycompany/librarymanagementsystem/model/Book.class
 com/mycompany/librarymanagementsystem/logic/Library.class
 com/mycompany/librarymanagementsystem/ui/MemberManagementPanel.class
 com/mycompany/librarymanagementsystem/ui/ReturnPanel.class
-com/mycompany/librarymanagementsystem/db/DBConnection.class
 com/mycompany/librarymanagementsystem/LibraryManagementSystem.class
 com/mycompany/librarymanagementsystem/model/BorrowRecord.class
 com/mycompany/librarymanagementsystem/model/LibraryItem.class

@@ -5,97 +5,38 @@
 package com.mycompany.librarymanagementsystem.db;
 
 import com.mycompany.librarymanagementsystem.model.Member;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MemberDAO {
-    // 1. Add a new member to the database
-    public boolean addMember(Member member) {
-        String query = "INSERT INTO members (member_id, member_name, contact_number) VALUES (?, ?, ?)";
-        
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            
-            // Assuming member.getId() gets the ID inherited from the Person class
-            pstmt.setString(1, member.getId());
-            pstmt.setString(2, member.getName());
-            pstmt.setString(3, member.getContactNumber());
-            
-            int rowsAffected = pstmt.executeUpdate();
-            return rowsAffected > 0;
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
+    // Using an ArrayList to store system data as requested[cite: 2]
+    private List<Member> members;
+
+    public MemberDAO() {
+        this.members = new ArrayList<>();
+        // Pre-load sample data
+        members.add(new Member("M001", "Nimal Perera", "0771234567"));
+        members.add(new Member("M002", "Kasun Silva", "0719876543"));
     }
 
-    // 2. View all members
+    public boolean addMember(Member member) {
+        return members.add(member);
+    }
+
     public List<Member> getAllMembers() {
-        List<Member> members = new ArrayList<>();
-        String query = "SELECT * FROM members";
-        
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query);
-             ResultSet rs = pstmt.executeQuery()) {
-            
-            while (rs.next()) {
-                Member member = new Member(
-                    rs.getString("member_id"),
-                    rs.getString("member_name"),
-                    rs.getString("contact_number")
-                );
-                members.add(member);
-            }
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return members;
     }
 
-    // 3. Search for a member by their ID
     public Member getMemberById(String memberId) {
-        String query = "SELECT * FROM members WHERE member_id = ?";
-        
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            
-            pstmt.setString(1, memberId);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    return new Member(
-                        rs.getString("member_id"),
-                        rs.getString("member_name"),
-                        rs.getString("contact_number")
-                    );
-                }
+        for (Member member : members) {
+            if (member.getId().equals(memberId)) {
+                return member;
             }
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
-        return null; // Return null if the member does not exist
+        return null; 
     }
 
-    // 4. Remove a member (Optional enhancement for complete management)
     public boolean deleteMember(String memberId) {
-        String query = "DELETE FROM members WHERE member_id = ?";
-        
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement pstmt = conn.prepareStatement(query)) {
-            
-            pstmt.setString(1, memberId);
-            int rowsAffected = pstmt.executeUpdate();
-            return rowsAffected > 0;
-            
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
+        return members.removeIf(member -> member.getId().equals(memberId));
     }
 }

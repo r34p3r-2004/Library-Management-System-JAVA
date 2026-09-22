@@ -4,7 +4,6 @@
 
 package com.mycompany.librarymanagementsystem;
 
-import com.mycompany.librarymanagementsystem.db.DBConnection;
 import java.sql.Connection;
 import java.sql.SQLException;
 import com.mycompany.librarymanagementsystem.logic.Library;

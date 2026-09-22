@@ -1,7 +1,6 @@
 /Users/sesanduramath/Desktop/JAVA OOP Group Project/Library-Management-System-JAVA/src/main/java/com/mycompany/librarymanagementsystem/LibraryManagementSystem.java
 /Users/sesanduramath/Desktop/JAVA OOP Group Project/Library-Management-System-JAVA/src/main/java/com/mycompany/librarymanagementsystem/db/BookDAO.java
 /Users/sesanduramath/Desktop/JAVA OOP Group Project/Library-Management-System-JAVA/src/main/java/com/mycompany/librarymanagementsystem/db/BorrowRecordDAO.java
-/Users/sesanduramath/Desktop/JAVA OOP Group Project/Library-Management-System-JAVA/src/main/java/com/mycompany/librarymanagementsystem/db/DBConnection.java
 /Users/sesanduramath/Desktop/JAVA OOP Group Project/Library-Management-System-JAVA/src/main/java/com/mycompany/librarymanagementsystem/db/MemberDAO.java
 /Users/sesanduramath/Desktop/JAVA OOP Group Project/Library-Management-System-JAVA/src/main/java/com/mycompany/librarymanagementsystem/logic/Library.java
 /Users/sesanduramath/Desktop/JAVA OOP Group Project/Library-Management-System-JAVA/src/main/java/com/mycompany/librarymanagementsystem/model/Book.java
